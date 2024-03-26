@@ -300,7 +300,7 @@ pub fn new_client(region_name: Option<String>) -> Result<S3Client, io::Error> {
         .build()
         .unwrap();
 
-    let region = Region::new(region_name.unwrap_or(String::from("us-east-1")));
+    let region = Region::new(region_name.unwrap_or(String::from("us-west-2")));
 
     let config = rt.block_on(aws_config::from_env().region(region).load());
     let s3_client = S3Client::new(&config);
